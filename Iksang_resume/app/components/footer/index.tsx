@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
 import { isMobile } from "react-device-detect";
 import * as THREE from "three";
-import { FOOTER_LINKS } from "../../constants";
+import { BASE_PATH, FOOTER_LINKS } from "../../constants";
 import { FooterLink } from "../../types";
 
 const FooterLinkItem = ({ link }: { link: FooterLink }) => {
@@ -25,7 +25,7 @@ const FooterLinkItem = ({ link }: { link: FooterLink }) => {
   };
 
   const fontProps = {
-    font: "./Vercetti-Regular.woff",
+    font: `${BASE_PATH}/Vercetti-Regular.woff`,
     fontSize: 0.2,
     color: 'white',
     onPointerOver,
@@ -75,7 +75,7 @@ const FooterLinkItem = ({ link }: { link: FooterLink }) => {
   useCursor(hovered && hasUrl);
 
   if (isMobile) {
-    return <Svg onClick={hasUrl ? onClick : undefined} scale={0.0015} position={[0.1, 0.25, 0]} src={link.icon} />;
+    return <Svg onClick={hasUrl ? onClick : undefined} scale={0.0015} position={[0.1, 0.25, 0]} src={`${BASE_PATH}/${link.icon}`} />;
   }
 
   return (

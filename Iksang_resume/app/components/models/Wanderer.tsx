@@ -11,6 +11,7 @@ import * as THREE from 'three'
 import React, { JSX } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { BASE_PATH } from '@constants'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -30,7 +31,7 @@ type GLTFResult = GLTF & {
 }
 
 export function Wanderer(props: JSX.IntrinsicElements['group']) {
-  const { nodes, materials } = useGLTF('models/wanderer_above_the_sea_of_fog.glb') as GLTFResult
+  const { nodes, materials } = useGLTF(`${BASE_PATH}/models/wanderer_above_the_sea_of_fog.glb`) as GLTFResult
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={0.676}>

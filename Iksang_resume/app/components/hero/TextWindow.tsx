@@ -4,6 +4,7 @@ import { Text, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
+import { BASE_PATH } from "@constants";
 
 const TextWindow = () => {
   const data = useScroll();
@@ -20,7 +21,7 @@ const TextWindow = () => {
   });
 
   const fontProps = {
-    font: "./fonts/MaruBuri-Bold.ttf",
+    font: `${BASE_PATH}/fonts/MaruBuri-Bold.ttf`,
   };
 
   return (

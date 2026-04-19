@@ -6,7 +6,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { isMobile } from "react-device-detect";
 import * as THREE from "three";
 
-import { WORK_TIMELINE } from "@constants";
+import { BASE_PATH, WORK_TIMELINE } from "@constants";
 import { WorkTimelinePoint } from "@types";
 
 const reusableLeft = new THREE.Vector3(-0.3, 0, -0.1);
@@ -24,7 +24,7 @@ const TimelinePoint = ({ point, diff }: { point: WorkTimelinePoint, diff: number
   const textAlign = point.position === 'left' ? 'right' : 'left';
 
   const textProps: Partial<TextProps> = useMemo(() => ({
-    font: "./Vercetti-Regular.woff",
+    font: `${BASE_PATH}/Vercetti-Regular.woff`,
     color: "white",
     anchorX: textAlign,
     fillOpacity: 2 - 2 * diff,
@@ -32,13 +32,13 @@ const TimelinePoint = ({ point, diff }: { point: WorkTimelinePoint, diff: number
 
   const titleProps = useMemo(() => ({
     ...textProps,
-    font: "./soria-font.ttf",
+    font: `${BASE_PATH}/soria-font.ttf`,
     fontSize: 0.6,
     maxWidth: 3,
   }), [textProps]);
 
   const koDetailProps: Partial<TextProps> = useMemo(() => ({
-    font: "./fonts/Pretendard-Regular.woff",
+    font: `${BASE_PATH}/fonts/Pretendard-Regular.woff`,
     color: "white",
     anchorX: textAlign,
     fillOpacity: 2 - 2 * diff,

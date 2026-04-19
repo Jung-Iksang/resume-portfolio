@@ -6,6 +6,7 @@ import { useProgress } from "@react-three/drei";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import { BASE_PATH } from "@constants";
 import CloudContainer from "../models/Cloud";
 import StarsContainer from "../models/Stars";
 import WindowModel from "../models/WindowModel";
@@ -29,12 +30,12 @@ const Hero = () => {
   }, [progress]);
 
   const fontProps = {
-    font: "./soria-font.ttf",
+    font: `${BASE_PATH}/soria-font.ttf`,
     fontSize: 1.2,
   };
 
   const koFontProps = {
-    font: "./fonts/MaruBuri-SemiBold.ttf",
+    font: `${BASE_PATH}/fonts/MaruBuri-SemiBold.ttf`,
     fontSize: 1.0,
   };
 

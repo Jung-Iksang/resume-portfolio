@@ -12,6 +12,7 @@ import * as THREE from 'three'
 import React, { JSX } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import { BASE_PATH } from '@constants'
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -37,7 +38,7 @@ type GLTFResult = GLTF & {
 }
 
 export function Memory(props: JSX.IntrinsicElements['group']) {
-  const { nodes, materials } = useGLTF('models/dalithe_persistence_of_memory.glb') as GLTFResult
+  const { nodes, materials } = useGLTF(`${BASE_PATH}/models/dalithe_persistence_of_memory.glb`) as GLTFResult
   return (
     <group {...props} dispose={null}>
       <mesh castShadow receiveShadow geometry={nodes['Extract2_04_-_Default_0'].geometry} material={materials['04_-_Default']} scale={0.021} />

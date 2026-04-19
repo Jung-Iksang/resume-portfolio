@@ -1,6 +1,7 @@
 
 import { Edges, MeshPortalMaterial, Text, TextProps, useScroll } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
+import { BASE_PATH } from '@constants';
 import { usePortalStore } from '@stores';
 import gsap from "gsap";
 import { useEffect, useRef } from 'react';
@@ -128,7 +129,7 @@ const GridTile = (props: GridTileProps) => {
   }
 
   const fontProps: Partial<TextProps> = {
-    font: "./soria-font.ttf",
+    font: `${BASE_PATH}/soria-font.ttf`,
     maxWidth: 2,
     anchorX: 'center',
     anchorY: 'bottom',

@@ -1,10 +1,11 @@
 import { Cloud, Clouds } from "@react-three/drei";
 import * as THREE from "three";
+import { BASE_PATH } from "@constants";
 
 const CloudContainer = () => {
   return (
     <Clouds material={THREE.MeshBasicMaterial}
-      texture="/textures/cloud.png"
+      texture={`${BASE_PATH}/textures/cloud.png`}
       position={[0, -5, 0]}
       frustumCulled={false}>
       <Cloud seed={1}

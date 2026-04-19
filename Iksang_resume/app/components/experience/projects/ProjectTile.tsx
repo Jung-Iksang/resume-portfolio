@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { isMobile } from "react-device-detect";
 import * as THREE from "three";
 
+import { BASE_PATH } from "@constants";
 import { usePortalStore } from "@stores";
 import { Project } from "@types";
 
@@ -32,12 +33,12 @@ const ProjectTile = ({ project, index, position, rotation, activeId, onClick }: 
   }, [project.title]);
 
   const titleProps = useMemo(() => ({
-    font: "./soria-font.ttf",
+    font: `${BASE_PATH}/soria-font.ttf`,
     color: "black",
   }), []);
 
   const subtitleProps: Partial<TextProps> = useMemo(() => ({
-    font: "./fonts/Pretendard-Regular.woff",
+    font: `${BASE_PATH}/fonts/Pretendard-Regular.woff`,
     color: "black",
     anchorX: "left",
     anchorY: "top",
