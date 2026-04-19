@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+* {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none;
+}
+
+body {
+  overscroll-behavior: none;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-vercetti), Arial, Helvetica, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+
+:root {
+  --scrollbarColor: #FFF;
+  --scrollbarBackground: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbarBackground);
+}
+::-webkit-scrollbar-thumb {
+  border-bottom: 100vh solid var(--scrollbarColor);
+}
+
+.close {
+  position: absolute;
+  left: 32px;
+  top: 32px;
+  width: 48px;
+  height: 48px;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .close {
+    margin-left: -24px;
+    margin-top: -16px;
+  }
+}
+
+.close:hover {
+  opacity: 1;
+}
+
+.close:before, .close:after {
+  position: absolute;
+  left: 2rem;
+  content: ' ';
+  height: 48px;
+  width: 2px;
+  background-color: #0a0a0a;
+}
+
+.close:before {
+  transform: rotate(45deg);
+}
+
+.close:after {
+  transform: rotate(-45deg);
+}
+
+/* Orientation Overlay */
+.orientation-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orientation-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.phone-icon {
+  animation: phone-rotate 2s ease-in-out infinite;
+}
+
+@keyframes phone-rotate {
+  0%, 20% { transform: rotate(0deg); }
+  40%, 60% { transform: rotate(-90deg); }
+  80%, 100% { transform: rotate(0deg); }
+}
+
+.orientation-text {
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+}
+
+.orientation-dismiss {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.75rem;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
+}
+
+/* Portrait minimal responsive */
+@media screen and (max-width: 480px) and (orientation: portrait) {
+  .scroll-hint {
+    bottom: 1rem !important;
+  }
+}
